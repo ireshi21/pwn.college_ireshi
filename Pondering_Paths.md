@@ -1,4 +1,4 @@
-# Hello Hackers
+# Pondering Paths
 
 ## Challenge 1: The Root
 
@@ -285,5 +285,6 @@ program_name argument1 argument2 ...
 ### References
 
 Challenge description and slides for syntax.
+
 
 
