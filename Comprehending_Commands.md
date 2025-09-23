@@ -161,4 +161,157 @@ Writes its contents to /home/hacker/flag.
 
 ### References
 
+
 Challenge description and GPT to clear doubts.
+
+
+# ----------------------------------------------------------------------------------------------------------
+
+## Challenge 7: touching files
+
+### Solve
+**Flag:** `pwn.college{0Vl1U8xx83HSolOGsURQgz9Wymn.QXwMDO0wyMwAzNzEzW}`
+
+```bash
+hacker@commands~touching-files:~$ cd /tmp
+hacker@commands~touching-files:/tmp$ touch /pwn
+touch: cannot touch '/pwn': Permission denied
+hacker@commands~touching-files:/tmp$ touch pwn
+hacker@commands~touching-files:/tmp$ touch college
+hacker@commands~touching-files:/tmp$ /challenge/run
+Success! Here is your flag:
+pwn.college{0Vl1U8xx83HSolOGsURQgz9Wymn.QXwMDO0wyMwAzNzEzW}
+```
+### New Learnings
+
+files are created using 'touch filename' command.
+ 
+### References
+
+
+Challenge description.
+
+# ----------------------------------------------------------------------------------------------------------
+
+## Challenge 8: removing files
+
+### Solve
+**Flag:** `pwn.college{kmavJbgiIyt9diBxPVTkzn1shx9.QX2kDM1wyMwAzNzEzW}`
+
+```bash
+hacker@commands~removing-files:~$ rm delete_me
+hacker@commands~removing-files:~$ ls
+f
+hacker@commands~removing-files:~$ /challenge/check
+Excellent removal. Here is your reward:
+pwn.college{kmavJbgiIyt9diBxPVTkzn1shx9.QX2kDM1wyMwAzNzEzW}
+```
+### New Learnings
+
+In Linux, you remove files with the rm command  
+ 
+### References
+
+
+Challenge description.
+
+# ----------------------------------------------------------------------------------------------------------
+
+## Challenge 9: moving files
+
+### Solve
+**Flag:** `pwn.college{MQw5FdIP_A_BM1UWiMkF4_OqTdK.0VOxEzNxwyMwAzNzEzW}`
+
+```bash
+hacker@commands~moving-files:~$ mv /flag /tmp/hack-the-planet
+Correct! Performing 'mv /flag /tmp/hack-the-planet'.
+hacker@commands~moving-files:~$ /challenge/check
+Congrats! You successfully moved the flag to /tmp/hack-the-planet! Here it is:
+pwn.college{MQw5FdIP_A_BM1UWiMkF4_OqTdK.0VOxEzNxwyMwAzNzEzW}
+```
+### New Learnings
+
+move files around with the mv command  
+syntax: mv old_filename new_filename  
+ 
+### References
+Challenge description.
+
+# ----------------------------------------------------------------------------------------------------------
+
+## Challenge 10: hidden files
+
+### Solve
+**Flag:** `pwn.college{gMDhSgL6KXvIycRFCRxqcLgS5yf.QXwUDO0wyMwAzNzEzW}`
+
+Q- Go find the flag, hidden as a dot-prepended file in /.
+
+```bash
+hacker@commands~hidden-files:~$ cd /
+hacker@commands~hidden-files:/$ ls -a
+.   .dockerenv            bin   challenge  etc   lib    lib64   media  nix  proc  run   srv  tmp  var
+..  .flag-54101044112990  boot  dev        home  lib32  libx32  mnt    opt  root  sbin  sys  usr
+hacker@commands~hidden-files:/$ cat .flag*
+pwn.college{gMDhSgL6KXvIycRFCRxqcLgS5yf.QXwUDO0wyMwAzNzEzW}
+```
+### New Learnings
+
+ls doesn't list all the files by default.   
+Linux has a convention where files that start with a "." don't show up by default in ls and in a few other contexts.  
+To view them with ls, you need to invoke ls with the -a flag, i.e, ls -a
+ 
+### References
+Challenge description.
+
+# ----------------------------------------------------------------------------------------------------------
+
+## Challenge 11: An Epic Filesystem Quest
+
+### Solve
+**Flag:** `pwn.college{UbZkm7v7CnZ2TOqtepc8eB7Xt-a.QX5IDO0wyMwAzNzEzW}`  
+
+Challenge involves using different way to access and read files.   
+1. to read without going into the directory, i.e., without using cd, you use- cat /absolute path  
+2. to read files which start with ".", ls -a /path is used
+
+
+### New Learnings
+
+1. if you're already in a path, for example  
+user/office$
+then to further go into a directory, use ./ (it traverses after office)
+if /name is used, then it's absolute path which starts from the home directory.
+ 
+### References
+Previous markdown notes.
+
+# ----------------------------------------------------------------------------------------------------------
+
+## Challenge 12: making directories
+### Solve
+**Flag:** `pwn.college{omEFMlgeshdarNwlbt_TuPaewH7.QXxMDO0wyMwAzNzEzW}`
+
+```bash
+hacker@commands~making-directories:~$ cd /tmp
+hacker@commands~making-directories:/tmp$ mkdir pwn
+hacker@commands~making-directories:/tmp$ cd pwn
+hacker@commands~making-directories:/tmp/pwn$ touch college
+hacker@commands~making-directories:/tmp/pwn$ /challenge/run
+Success! Here is your flag:
+pwn.college{omEFMlgeshdarNwlbt_TuPaewH7.QXxMDO0wyMwAzNzEzW}
+
+```
+### New Learnings
+
+We can create files using touch  
+You make directories using the mkdir command  
+### References
+Challenge description.
+
+# ----------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
