@@ -310,6 +310,96 @@ Challenge description.
 
 # ----------------------------------------------------------------------------------------------------------
 
+## Challenge 13: finding files
+### Solve
+**Flag:** `pwn.college{cpRAxVeuvWamdrEOmFC60qu7Td7.QXyMDO0wyMwAzNzEzW}`
+
+```bash
+hacker@commands~finding-files:~$ ~
+bash: /home/hacker: Is a directory
+hacker@commands~finding-files:~$ find / -name flag
+find: ‘/root’: Permission denied
+find: ‘/proc/1/task/1/fd’: Permission denied
+find: ‘/proc/1/task/1/fdinfo’: Permission denied
+find: ‘/proc/1/task/1/ns’: Permission denied
+find: ‘/proc/1/fd’: Permission denied
+find: ‘/proc/1/map_files’: Permission denied
+find: ‘/proc/1/fdinfo’: Permission denied
+find: ‘/proc/1/ns’: Permission denied
+find: ‘/proc/7/task/7/fd’: Permission denied
+find: ‘/proc/7/task/7/fdinfo’: Permission denied
+find: ‘/proc/7/task/7/ns’: Permission denied
+find: ‘/proc/7/fd’: Permission denied
+find: ‘/proc/7/map_files’: Permission denied
+find: ‘/proc/7/fdinfo’: Permission denied
+find: ‘/proc/7/ns’: Permission denied
+find: ‘/var/log/private’: Permission denied
+find: ‘/var/log/apache2’: Permission denied
+find: ‘/var/log/mysql’: Permission denied
+find: ‘/var/cache/ldconfig’: Permission denied
+find: ‘/var/cache/apt/archives/partial’: Permission denied
+find: ‘/var/cache/private’: Permission denied
+find: ‘/var/lib/apt/lists/partial’: Permission denied
+find: ‘/var/lib/php/sessions’: Permission denied
+find: ‘/var/lib/mysql-files’: Permission denied
+find: ‘/var/lib/private’: Permission denied
+find: ‘/var/lib/mysql-keyring’: Permission denied
+find: ‘/var/lib/mysql’: Permission denied
+find: ‘/tmp/tmp.TpSOPGOVKK’: Permission denied
+find: ‘/run/mysqld’: Permission denied
+find: ‘/run/sudo’: Permission denied
+find: ‘/etc/ssl/private’: Permission denied
+/usr/local/lib/python3.8/dist-packages/pwnlib/flag
+/usr/share/racket/pkgs/scribble-lib/scribble/lncs/compiled/flag
+/opt/pwndbg/.venv/lib/python3.8/site-packages/pwnlib/flag
+/nix/store/7ns27apnvn4qj4q5c82x0z1lzixrz47p-radare2-5.9.8/share/radare2/5.9.8/flag
+/nix/store/5z3sjp9r463i3siif58hq5wj5jmy5m98-python3.12-pwntools-4.13.1/lib/python3.12/site-packages/pwnlib/flag
+/nix/store/5n5lp1m8gilgrsriv1f2z0jdjk50ypcn-rizin-0.7.3/share/rizin/flag
+/nix/store/bnlabj2vsbljhp597ir29l51nrqhm89w-rizin-0.7.4/share/rizin/flag
+/nix/store/s8b49lb0pqwvw0c6kgjbxdwxcv2bp0x4-radare2-5.9.8/share/radare2/5.9.8/flag
+/nix/store/1hyxipvwpdpcxw90l5pq1nvd6s6jdi5m-python3.12-pwntools-4.14.1/lib/python3.12/site-packages/pwnlib/flag
+/nix/store/h88mxp2mbgyj06vypwmqpy05idhwimnp-python3.13-pwntools-4.14.1/lib/python3.13/site-packages/pwnlib/flag
+/nix/store/5qz6hgb1qzpvjrsw20wyiylx5zw8b9bk-pwntools-4.14.0/lib/python3.13/site-packages/pwnlib/flag
+hacker@commands~finding-files:~$ ls -a^C
+hacker@commands~finding-files:~$ ls -a /usr/local/lib/python3.8/dist-packages/pwnlib/flag
+.  ..  __init__.py  __pycache__  flag.py
+hacker@commands~finding-files:~$ ls -a /usr/share/racket/pkgs/scribble-lib/scribble/lncs/compiled/flag
+/usr/share/racket/pkgs/scribble-lib/scribble/lncs/compiled/flag
+hacker@commands~finding-files:~$ cat /usr/share/racket/pkgs/scribble-lib/scribble/lncs/compiled/flag
+pwn.college{cpRAxVeuvWamdrEOmFC60qu7Td7.QXyMDO0wyMwAzNzEzW}hacker@commands~finding-files:~$ 
+
+```
+### New Learnings
+
+The "find" command in Linux is a powerful command-line utility used to search for files and directories within a specified directory   hierarchy. It allows you to locate files based on various criteria, including:   
+  Name: Search for files or directories by their exact name or a pattern using wildcards.  
+  Type: Specify whether to search for regular files (-type f), directories (-type d), symbolic links (-type l), etc.  
+  Size: Find files based on their size (e.g., greater than, less than, or exactly a certain size).  
+  Time: Locate files based on their modification time (-mtime), access time (-atime), or change time (-ctime).  
+  Permissions: Search for files with specific permissions.  
+  Owner/Group: Find files belonging to a particular user or group.  
+find [path] [expression]  
+
+Example — Find a file named filename.txt in the current directory  
+Syntax — find . -name "filename.txt"  
+
+Example — Find all files ending with .log in /var/log  
+Syntax — find /var/log -name "*.log"  
+
+Example — Find all directories in your home directory  
+Syntax — find ~ -type d  
+
+Example — Find files larger than 10 MB starting at root (/)  
+Syntax — find / -size +10M  
+
+Example — Find files modified in the last 7 days in a given path  
+Syntax — find /path/to/search -mtime -7  
+
+
+### References
+Challenge description, geekforgeeks.
+
+
 
 
 
