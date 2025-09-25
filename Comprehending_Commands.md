@@ -399,6 +399,75 @@ Syntax — find /path/to/search -mtime -7
 ### References
 Challenge description, geekforgeeks.
 
+# ----------------------------------------------------------------------------------------------------------
+
+## Challenge 14: linking files
+### Solve
+**Flag:** `pwn.college{Y48bA9Lx0nIKh3obHTnBD8DdcWR.QX5ETN1wyMwAzNzEzW}`
+
+```bash
+hacker@commands~linking-files:~$ ln -s /flag ~/not-the-flag
+hacker@commands~linking-files:~$ /challenge/catflag
+About to read out the /home/hacker/not-the-flag file!
+pwn.college{Y48bA9Lx0nIKh3obHTnBD8DdcWR.QX5ETN1wyMwAzNzEzW}
+
+```
+### New Learnings
+Links in UNIX  
+
+1. A link is like a pointer or shortcut to a file/directory.  
+
+2. Two types: Hard links and Soft (symbolic) links.  
+
+3. Difference:  
+
+Hard links point directly to the same data (inode).    
+
+Soft links point to the file path. If the file is moved/deleted, they break.  
+
+4. Hard Links   
+
+Share the same inode as the original file.  
+
+Survive renaming or deleting of the original file (until all links are removed).  
+
+Cannot be created across different filesystems.  
+
+Cannot be created for directories.  
+
+ls -l shows the number of hard links.  
+
+Content and size are identical in all hard links.  
+
+Removing one link only reduces the count, doesn’t delete data.  
+
+Command:  
+ln original_file link_name  
+
+5. Soft (Symbolic) Links  
+
+Like a Windows shortcut.  
+
+Have a different inode; store the path of the target file.  
+
+Can be used across filesystems.  
+
+Can be created for directories.  
+
+ls -l shows with an l at the start and displays link -> target.  
+
+Size of link = length of target file path.  
+
+If the target file is renamed, moved, or deleted → link breaks (dangling).  
+
+Removing a symlink does not affect the original file.  
+
+Command:  
+ln -s original_file link_name   
+### References
+Challenge description, slides and geekforgeeks.
+
+
 
 
 
