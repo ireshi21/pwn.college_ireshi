@@ -491,18 +491,51 @@ Challenge description and chatgpt for theory clarity.
 
 ### Solve
 
-**Flag:** ``
+**Flag:** `pwn.college{QUXSEqyPVcw_FXfdDiN8GFzTvQl.01MzMDOxwyMwAzNzEzW}`
 
 ```bash
+hacker@piping~named-pipes:~$ cd ..
+hacker@piping~named-pipes:~$ /challenge/run | /tmp/flag_fifo
+-bash: /tmp/flag_fifo: No such file or directory
+You did not redirect /challenge/run's stdout to /tmp/flag_fifo!
+hacker@piping~named-pipes:~$ mkfifo /tmp/flag_fifo
+hacker@piping~named-pipes:~$ cat /tmp/flag_fifo
+^C
+^C
+hacker@piping~named-pipes:~$ /challenge/run > /tmp/flag_fifo
+You're successfully redirecting /challenge/run to a FIFO at /tmp/flag_fifo!
+Bash will now try to open the FIFO for writing, to pass it as the stdout of /challenge/run. Recall that operations on FIFOs will *block* until both the read side and the write side is open, so /challenge/run will not actually be launched until you start reading from the FIFO!
 
+ANOTHER TERMINAL:
+
+hacker@piping~named-pipes:~$ cat /tmp/flag_fifo
+You've correctly redirected /challenge/run's stdout to a FIFO at /tmp/flag_fifo! Here is your flag: pwn.college{QUXSEqyPVcw_FXfdDiN8GFzTvQl.01MzMDOxwyMwAzNzEzW}
 ```
 ### New Learnings
+
+1. Why use FIFO instead of file:  
+
+No disk storage – data passes in memory  
+
+Ephemeral data – data disappears once read  
+
+Automatic synchronization – writers/readers block until ready  
+
+Supports complex flows – multiple readers/writers, merging, splitting  
+
+2. Create FIFO: mkfifo my_pipe
+3. 1. Create a FIFO  
+mkfifo <fifo_name>
+2. Write to FIFO  
+echo "data" > <fifo_name>
+3. read from fifo  
+cat <fifo_name>  
 
 
 
 ### References
 
-Challenge description.
+Challenge description and chatgpt for clarity.
 
 
 # ----------------------------------------------------------------------------------------------------------
@@ -584,5 +617,6 @@ myprog > >(rev) 2> >(tr a-z A-Z)
 stdout goes into rev  
 
 stderr goes into tr, which uppercases it  
+
 
 
