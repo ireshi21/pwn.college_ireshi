@@ -156,7 +156,10 @@ What happens when you run it:
 
 The program reads /flag (hidden/protected).  
 
-Writes its contents to /home/hacker/flag.  
+Writes its contents to /home/hacker/flag. 
+
+OR
+because the /challenge/run is renamed to /challenge/18701-renamed-run-3303, only execution of that command alone will be sufficient.
 
 
 ### References
@@ -466,6 +469,7 @@ Command:
 ln -s original_file link_name   
 ### References
 Challenge description, slides and geekforgeeks.
+
 
 
 
