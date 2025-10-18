@@ -1,0 +1,12 @@
+# Forensics
+
+## Challenge: dont-use-client-side
+### Solve 
+Can you break into this super secure portal? https://jupiter.challenges.picoctf.org/problem/37821/ (link) or http://jupiter.challenges.picoctf.org:37821  
+
+**Flag:** `picoCTF{no_clients_plz_1a3c89}`
+
+METHOD:  
+1. dont trust client side- so go to inspect
+2. nothing there as such- view page source- has flag split in substrings   
+   
