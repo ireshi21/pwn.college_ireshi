@@ -1,0 +1,15 @@
+# Forensics
+
+## Challenge: Some Assembly Required 1
+### Solve 
+http://mercury.picoctf.net:1896/index.html
+
+**Flag:** `picoCTF{a2843c6ba4157dc1bc052818a6242c3f} `
+
+METHOD:  
+1. View page source - go to the JS given
+2. put /JIFxzHyW8W in the url inplace of the .js
+3. flag at the end of file
+
+### References
+https://www.youtube.com/watch?v=aRLA1PQzNXI - to refer which one to input in the URL - all i got was because it has a /, even after using deobfuscator, i can't tell that that's the one being fetched because the array keeps rotating so you never know which one is it gonna be at runtime.
